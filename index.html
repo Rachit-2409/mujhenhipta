@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Pass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            background: url('https://wallpapers.com/images/featured/futuristic-city-background-gfixge3n17657ygy.jpg');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            height: 500px;
+            width: 350px;
+            background: rgba(32, 7, 7, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(32, 7, 7, 0.3);
+            color: #fff;
+            padding: 1.5rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.25rem;
+        }
+
+        span {
+            color: rgb(217, 255, 0);
+        }
+
+        #email {
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+        }
+
+        label {
+            display: inline-block;
+            margin: 1.25rem 0;
+        }
+
+        p {
+            margin: 1.25rem 0;
+        }
+
+        div label {
+            display: inline-block;
+            margin: 0.65rem 0;
+        }
+
+        button {
+            background: blue;
+            color: #fff;
+            outline: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            margin: 0.5rem 0;
+        }
+        .upper_box{
+            height: 100vh;
+            width: 100%;
+            background: #212121b8;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            transition: 1s ease-in-out ;
+            
+        }
+        .upper_box img{
+            height: 400px;
+            width: 400px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .bi{
+            background: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Subscibe to Email Update</h2>
+            <label for="email">Email <span>*</span></label>
+            <input type="email" name="" id="email">
+
+            <p>Notification Frequency <span>*</span> </p>
+
+            <div>
+                <input type="radio" name="notification_time" id="instant" value="Instant">
+                <label for="instant">Instant</label>
+            </div>
+            <div>
+                <input type="radio" name="notification_time" id="daily" value="Daily">
+                <label for="daily">Daily </label>
+            </div>
+            <div>
+                <input type="radio" name="notification_time" id="weekly" value="Weekly">
+                <label for="weekly">Weekly </label>
+            </div>
+            <div>
+                <input type="radio" name="notification_time" id="monthly" value="Monthly">
+                <label for="monthly">Monthly</label>
+            </div>
+
+            <button>
+                Submit
+            </button>
+
+
+        </div>
+<div class="upper_box">
+    <i class="bi bi-x-circle"></i>
+    <img src="./nahi-nahi-nahi-solanki-yaha-kucch-to-gadbad-hai-kucch-to-gadbad-hai.gif" alt="">
+</div>
+    </div>
+
+
+
+
+    <script>
+        let email = document.getElementById('email');
+        let btn = document.querySelector('button');
+        let notification = document.getElementsByName('notification_time');
+        let upper_box = document.querySelector('.upper_box');
+        let cross  = document.querySelector('.bi')
+
+        btn.addEventListener('click', () => {
+            let x;
+            let email_val = email.value;
+
+
+            for (let result of notification) {
+                if (result.checked) {
+                    x = result.value;
+                }
+            }
+
+            if (email_val == 0 || x == undefined) {
+                    upper_box.style.display = "block"
+            }else{
+                alert(`Haan lala, leliya tumhu ${x}, samjhe ${email_val}`)
+            }
+        
+
+        })
+
+        cross.addEventListener('click', ()=>{
+            upper_box.style.display = "none"
+        })
+
+    </script>
+</body>
+
+</html>
